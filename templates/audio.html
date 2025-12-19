@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Audio Steganography</h3>
+
+<form method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="mode" id="mode" value="encode">
+
+  <input type="file" name="carrier" accept=".wav" class="form-control mb-2" required>
+
+  <textarea name="secret" class="form-control mb-2" placeholder="Secret message (Encode only)"></textarea>
+
+  <div class="mb-2">
+    <button class="btn btn-success" onclick="setMode('encode')">Encode</button>
+    <button class="btn btn-secondary" onclick="setMode('decode')">Decode</button>
+  </div>
+</form>
+
+<script>
+function setMode(val){
+  document.getElementById("mode").value = val;
+}
+</script>
+{% endblock %}

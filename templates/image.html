@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Image Steganography</h3>
+
+<form method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="mode" id="mode" value="encode">
+
+  <div class="mb-3">
+    <label class="form-label">Upload Image</label>
+    <input type="file" name="carrier" accept="image/*" class="form-control" required>
+  </div>
+
+  <div class="mb-3" id="secretBox">
+    <label class="form-label">Secret Message</label>
+    <textarea name="secret" class="form-control"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary" onclick="setMode('encode')">Encode</button>
+    <button type="submit" class="btn btn-secondary" onclick="setMode('decode')">Decode</button>
+  </div>
+</form>
+
+<script>
+function setMode(val){
+  document.getElementById("mode").value = val;
+}
+</script>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Welcome, {{ current_user.username }}</h2>
+
+<div class="row g-4">
+
+  <!-- IMAGE CARD -->
+  <div class="col-md-4">
+    <div class="card stego-card text-center p-4">
+      <i class="fa-regular fa-image fa-3x text-primary mb-3"></i>
+      <h5>Image Steganography</h5>
+      <p>Hide secret text inside images.</p>
+      <a href="/image" class="btn btn-primary w-100">Open</a>
+    </div>
+  </div>
+
+  <!-- AUDIO CARD -->
+  <div class="col-md-4">
+    <div class="card stego-card text-center p-4">
+      <i class="fa-solid fa-music fa-3x text-success mb-3"></i>
+      <h5>Audio Steganography</h5>
+      <p>Embed text inside WAV audio.</p>
+      <a href="/audio" class="btn btn-success w-100">Open</a>
+    </div>
+  </div>
+
+  <!-- VIDEO CARD -->
+  <div class="col-md-4">
+    <div class="card stego-card text-center p-4">
+      <i class="fa-solid fa-video fa-3x text-danger mb-3"></i>
+      <h5>Video Steganography</h5>
+      <p>Hide text or files inside videos.</p>
+      <a href="/video" class="btn btn-danger w-100">Open</a>
+    </div>
+  </div>
+
+</div>
+
+<hr class="my-4">
+
+<h4>History</h4>
+<table class="table table-hover table-bordered">
+<tr>
+  <th>Module</th>
+  <th>Action</th>
+  <th>File</th>
+  <th>Time</th>
+</tr>
+{% for h in history %}
+<tr>
+  <td>{{ h.module }}</td>
+  <td>{{ h.action }}</td>
+  <td>{{ h.filename }}</td>
+  <td>{{ h.time }}</td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}
