@@ -61,31 +61,53 @@ This project integrates **Image, Audio, and Video steganography** into a single 
 
 Multimedia-Steganography/
 │
-├── app.py
-├── config.py
-├── requirements.txt
-├── README.md
-│
-├── modules/
-│ ├── image_steg/
-│ ├── audio_steg/
-│ └── video_steg/
-│
-├── templates/
-│ ├── base.html
-│ ├── dashboard.html
-│ ├── image.html
-│ ├── audio.html
-│ ├── video.html
-│ └── auth pages
-│
-├── static/
-│ └── css/
+├── app.py                  # Main Flask application (routes & logic)
+├── config.py               # Configuration settings
+├── requirements.txt        # Python dependencies
+├── README.md               # Project documentation
+├── .gitignore              # Files/folders ignored by Git
 │
 ├── instance/
-│ └── stego.db
+│   └── stego.db            # SQLite database (user & history data)
 │
-└── .gitignore
+├── modules/                # Core steganography modules
+│   │
+│   ├── image_steg/
+│   │   ├── __init__.py
+│   │   ├── encoder.py      # Image encoding logic (LSB)
+│   │   └── decoder.py      # Image decoding logic
+│   │
+│   ├── audio_steg/
+│   │   ├── __init__.py
+│   │   ├── encoder.py      # Audio encoding logic
+│   │   ├── decoder.py      # Audio decoding logic
+│   │   └── utils.py        # Audio helper functions
+│   │
+│   └── video_steg/
+│       ├── __init__.py
+│       ├── encoder.py      # Video encode wrapper
+│       ├── decoder.py      # Video decode wrapper
+│       └── video_core.py   # Core OpenCV-based video steganography
+│
+├── templates/              # HTML templates
+│   │
+│   ├── base.html           # Base layout (navbar, alerts, dark mode)
+│   ├── dashboard.html      # User dashboard
+│   ├── image.html          # Image steganography UI
+│   ├── audio.html          # Audio steganography UI
+│   ├── video.html          # Video steganography UI
+│   ├── login.html          # Login page
+│   └── register.html       # Registration page
+│
+├── static/
+│   │
+│   ├── css/
+│   │   └── style.css       # Custom styles (cards, dark mode)
+│   │
+│   └── uploads/            # Temporary uploaded files (ignored in Git)
+│
+└── migrations/             # (Optional) Database migrations
+
 
 
 
